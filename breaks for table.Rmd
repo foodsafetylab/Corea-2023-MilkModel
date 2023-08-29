@@ -7,7 +7,7 @@ output: html_document
 
 ```{r}
 library(readr)
-breaks_base <- read_csv("C:/Users/Gustavo Reyes/Box/Share Table Project/Milk Spoilage Model Docs/Time Temp Study/Trial Data/Time Data/Breaks_quant.csv")
+breaks_base <- read_csv("C:\Users\coreap\Documents\GitHub\Corea-2023-MilkModel\School Breaks Data\Breaks_quant.csv")
 ```
 
 ##Wrangle dfs
