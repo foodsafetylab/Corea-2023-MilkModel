@@ -7,7 +7,8 @@ output: html_document
 
 ```{r}
 library(readr)
-breaks_base <- read_csv("C:\Users\coreap\Documents\GitHub\Corea-2023-MilkModel\School Breaks Data\Breaks_quant.csv")
+#breaks_base <- read_csv("School Breaks Data/Breaks_quant.csv")
+breaks_base <- read_csv("School Breaks Data/Breaks_quant.csv")
 ```
 
 ##Wrangle dfs
@@ -137,7 +138,7 @@ ggplot(df, aes(x = Total_time))+
   theme_bw()+
   labs(x= "Time (min)", y = "Count (Schools)", fill= "No. Lunches, No. Breaks")
   
-ggsave("histograms_lunch.jpg", width =8, height = 6, units = "in", dpi = 300)
+ggsave("Figures/Figure A- histograms_lunch.jpg", width =8, height = 6, units = "in", dpi = 300)
 
 ```
 

@@ -19,21 +19,25 @@
   
   N_Iterations<-round((Students_p_grade*NSLP_rate),0) #65
   
+  ########## FOR COREA Et al ##################
+  
   #Serivices, number of days we are trying to iterate. Lunch periods per day
-  Service_No<-1 #2 is baseline
+  Service_No<- 2 #2 is baseline
   
   #Days we are trying to Iterate. Days
-  Food_Days<-5
+  Food_Days<-5 #Baseline is 5
 
   #Weeks
-  
-  Sens_Iterations<-37
+  Sens_Iterations<-37 #Baseline is 37 weeks
   
   
 #Lengths for milk model #need to make sense with no services all have to add up to 1440
-  Time_Service_Length = 40
-  Time_Turnaround_Length = 0 #25
-  Time_Overnight_Length = 1400#1315 #
+  Time_Service_Length = 50 #Baseline is 50
+  Time_Turnaround_Length = 25 # Baseline is 25
+  Time_Overnight_Length = 1315 #Baseline is 1315 
+  
+  
+  ########## FOR COREA Et al ##################
 
 # Sevice Line Information -------------------------------------------------
   
@@ -50,17 +54,12 @@
   
 # Inputs for Calculation if student is contaminated -------------------------
   
-
-  
-  
   Number_Student_Pathogens<-1 #Students that are contaminated that will enter the system every week. 
   
   Student_Pathogen_No<-c(1)  #No Student that is contaminated to enter iteration
   Student_Pathogen_Service<-c(1) #service in which contaminated kid enter the. 
   Student_Pathogen_Day<-c(1)#Day in which contaminated kids may enter system. 
 
-
-  
   
 #Inputs for allergen contamination ----------------------------------------
   
@@ -95,13 +94,16 @@
   Pr_eat_Pss<-.627 #.77
   Pr_eat_Pre<-.674 #.85
 
-
-
+  
+  ########## FOR COREA Et al ##################
   
   # Inputs for Milk Spoilage -------------------------------------------------
-  Milk_Con_Mean<- 0.38 # 0.38 #-1.77, q2.5 #2.52 q97.5, 0.38 q50 
+  Milk_Con_Mean<- -1.77 # 0.38 #-1.77, q2.5 #2.52 q97.5, 0.38 q50 
   Milk_Con_SD<-1.1 #1.1
-  Spoilage_Treshold<-7 #Considered spoiled milk. APCs log CFU/g
+  
+  ########## FOR COREA Et al ##################
+  
+  Spoilage_Treshold<-6 #Considered spoiled milk. Physchotrophs log CFU/g, not part of the corea model
   
   #quantile(rnorm(100000,0.38,1.1),.50)
   
@@ -222,8 +224,12 @@
   
 #Share Table Toggle 
   
+  ########## FOR COREA Et al ##################
+  
   #Include Share Table:
-  Share_Table_YN<-1
+  Share_Table_YN<-1 #1 is baseline on, 0 is off
+  
+  ########## FOR COREA Et al ##################
 
   #Share Table to Service line after every Day # note turn in 1 if ST on
   STtoReservice_YN<-1 #this is reservice. 

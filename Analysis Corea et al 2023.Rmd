@@ -310,7 +310,6 @@ Obtaining_Spoiled_Milks<-function(Temp_Profile, N_Years, Service_Length,TurningT
     AnalysysDF$Shared<-ifelse(AnalysysDF$STtimes>0, "Yes", "No")
     
     
-    
     Output_Milk<-Spoilage_Function_Single_Milk(Cont = 2.44, Pop_Max =8.14, Time_Temp_df = Temp_Profile, Interval =1/60,AF = 1.32)
     Changes_Over_Time<-Output_Milk[[2]]
     
@@ -378,8 +377,12 @@ Obtaining_Spoiled_Milks_DFs<-function(N_Years, Service_Length,TurningT_Length){
   return(final_list)
 }
 
+```
+
+```{r warning=TRUE}
+
 #normal service, changes in time and temp profile
-Outs_DFs<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25) 
+Outs_DFs<-Obtaining_Spoiled_Milks_DFs(N_Years = 1, Service_Length = 50,TurningT_Length = 25) 
 
 Outs_DFs_RTB<-Outs_DFs
 Outs_DFs_RT<-Outs_DFs
@@ -390,22 +393,28 @@ Outs_DFs_RTB_refB<-Outs_DFs
 Outs_DFs_RTB_18C<-Outs_DFs
 Outs_DFs_RTB_21C<-Outs_DFs
 Outs_DFs_RTB_23C<-Outs_DFs
-
 Outs_DFs_Ref_7C<-Outs_DFs
 Outs_DFs_Ref_2C<-Outs_DFs
 Outs_DFs_Ref_4C<-Outs_DFs
+```
 
+```{r warning=TRUE}
 #for this one you will have to change the Input_static file, reload it and then run each of the lines
 source("Input_Static.R")
 Outs_DFs_LowCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
+
 source("Input_Static.R")
 Outs_DFs_MedCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
+
 source("Input_Static.R")
 Outs_DFs_HighCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
 
 source("Input_Static.R")
 Outs_DFs_VeryHighCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25) 
+```
 
+
+```{r warning=TRUE}
 #ST off
 source("Input_Static.R")
 Outs_DFs_SToff<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
@@ -416,7 +425,6 @@ Outs_DFs_5s4b<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,Tur
 
 source("Input_Static.R")
 Outs_DFs_4s3b<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 7)
-
 
 source("Input_Static.R")
 Outs_DFs_1sb0<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 40,TurningT_Length = 0)

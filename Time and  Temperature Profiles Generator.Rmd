@@ -22,6 +22,7 @@ get_h<-function(Neg_slope, rho = 1.033, C = 4.2 , V = 0.236, A = 0.004275){
   return(- neg_h)
 } 
 
+
 #This function gets temperature after some time. Based on Tinf and To
 get_temp<-function(h, To, Tinf, time,  A =0.004275,rho =1.033, C= 4.2, V = 0.236 ){
   #Time in minutes
@@ -50,7 +51,6 @@ predict_temp_fromProf<-function(Time_Temp_Prof, Initial_Temp, h_condition){
   return(Temp_V)
 }
 
-
 #Generate Temperature Conditions (Simulated Condition)
 #Temperatures are a normal distribution
 #tot time =minutes
@@ -59,6 +59,7 @@ Time_Temp_Creation_Var<-function(Total_Time, Interval, Mean_Temperature, SD_Temp
   Time_Temp_df<-rnorm(n =Total_Time+1, mean = Mean_Temperature, sd= SD_Temperature)
   return (Time_Temp_df)
 }
+
 
 
 #First cpnd = "Room Temp" , "Refrigeration", ....
@@ -102,6 +103,7 @@ Create_Temperature_Profile_days<-function(First_Cond,
                                       "Condition" = Cond_Vec)
     return(Simulated_Conditions)
 }
+
 
 
 Create_Temperature_Profile_var<-function(Service_Cond,
@@ -222,6 +224,7 @@ h_TIP = get_h(Neg_slope = Neg_Slope_TIP)
 h_CI = get_h(Neg_slope = Neg_Slope_CI)
 
 ```
+
 
 ## Generating Specific Time and Temperature profiles for study
 
@@ -950,7 +953,7 @@ Max_s1b0<-round(max(Df_RT_MT_s1b0$MilkTemp),1)
 
 
 
-#RMSE and Text
+#Text SHOWING THE MAX TEMP
 dat_text <- data.frame(
 label = c(paste("Milk Peak Temp:",Max_RTB,"°C"), 
           paste("Milk Peak Temp:",Max_RT,"°C"), 
@@ -972,7 +975,7 @@ label = c(paste("Milk Peak Temp:",Max_RTB,"°C"),
 Condition   = c("Ambient Temperature 72°F (22.1°C)", "Refrigerated Tray", "Tray with Ice Packs", "Tray with Ice", "Cooler with Ice", "Ambient with Intermediate Refrigeration","Ambient Temperature 65°F (18.3° C)","Ambient Temperature 70°F (21.1° C)","Ambient Temperature 75°F (23.8° C)", "Overnight Refrigeration 36°F (2°C)","Overnight Refrigeration 39°F (4°C)","Overnight Refrigeration 45°F (7°C)","5 Lunch (50 min) with 4 breaks (4 min)","4 Lunch (50 min) with 3 breaks (7 min)","2 Lunches (30 min) with 1 break (14 min)","1 Lunch (40 min) with 0 breaks"),
 Scenario   = c("Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Ambient Temperature Scenarios","Ambient Temperature Scenarios","Ambient Temperature Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios"),
   x     = c(5200, 5200, 5200,5200,5200, 5200, 5200,5200, 5200, 5200, 5200,5200, 5200,5200, 5200,5200),
-  y     = c(20, 20, 20,20,20,20,20, 20, 20,20,20,20,20,20,20,20)
+  y     = c(25, 25, 25,25,25,25,25, 25, 25,25,25,25,25,25,25,25)
 )
 
 
@@ -991,7 +994,7 @@ ggplot(data = All_6_melted, aes(x = Time, y = value))+
   geom_text(data = dat_text, mapping = aes(x = x, y = y, label = label), size =3) +
   theme(legend.position = "top",strip.text = element_text(face="bold"),strip.background = element_rect(fill="lightgrey"))
 
-ggsave("All Temp Combined.png", height = 7, width = 9, dpi = 300)
+ggsave("Pedicted Time and Temp Profiles/All Temp Combined.png", height = 10, width = 10, dpi = 300)
 
 
 ```
@@ -1012,7 +1015,7 @@ ggplot(data = All_Temp_melted, aes(x = Time, y = value, color = variable))+
   facet_wrap(~Condition, ncol= 1)+
   theme(legend.position = "right")
 
-ggsave("Pedicted Time and Temp Profiles/All Temp Combined Temperature.png", height = 5, width = 9, dpi = 300)
+ggsave("Pedicted Time and Temp Profiles/All Temp Combined Temperature.png", height = 10, width = 10, dpi = 300)
 ```
 
 
