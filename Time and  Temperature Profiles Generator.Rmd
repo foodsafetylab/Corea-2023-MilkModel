@@ -6,6 +6,8 @@ date: "2023-04-24"
 
 #This document is used to create the milk time and temperature profiles.
 
+
+## Run this chunk for libraries
 ```{r}
 library(tidyverse)
 library(reshape2)
@@ -19,7 +21,7 @@ library(reshape2)
 get_h<-function(Neg_slope, rho = 1.033, C = 4.2 , V = 0.236, A = 0.004275){
   #Neg slope for each condition
   neg_h =  ((Neg_slope*rho*C*V)/A)
-  return(- neg_h)
+  return(-neg_h)
 } 
 
 
@@ -966,12 +968,13 @@ All_6_melted<-rbind(Df_RT_MT_RTB_melted,
                     Df_RT_MT_s5b4_melted,
                     Df_RT_MT_s4b3_melted,
                     Df_RT_MT_s2b1_melted,
-                    Df_RT_MT_s1b0_melted
+                    Df_RT_MT_s1b0_melted,
+                    Df_RT_MT_s3b2_melted
                     )
 
 #All_6_melted$Condition<-str_replace(All_6_melted$Condition, pattern = "Room Temp B", replacement = "Baseline")
 
-All_6_melted$Condition<-factor(All_6_melted$Condition, levels = c("Ambient Temperature 72°F (22.1°C)", "Refrigerated Tray", "Tray with Ice Packs", "Tray with Ice", "Cooler with Ice", "Ambient with Intermediate Refrigeration","Ambient Temperature 65°F (18.3° C)","Ambient Temperature 70°F (21.1° C)","Ambient Temperature 75°F (23.8° C)", "Overnight Refrigeration 36°F (2°C)","Overnight Refrigeration 39°F (4°C)","Overnight Refrigeration 45°F (7°C)","5 Lunch (50 min) with 4 breaks (4 min)","4 Lunch (50 min) with 3 breaks (7 min)","2 Lunches (30 min) with 1 break (14 min)","1 Lunch (40 min) with 0 breaks" ))
+All_6_melted$Condition<-factor(All_6_melted$Condition, levels = c("Ambient Temperature 72°F (22.1°C)", "Refrigerated Tray", "Tray with Ice Packs", "Tray with Ice", "Cooler with Ice", "Ambient with Intermediate Refrigeration","Ambient Temperature 65°F (18.3° C)","Ambient Temperature 70°F (21.1° C)","Ambient Temperature 75°F (23.8° C)", "Overnight Refrigeration 36°F (2°C)","Overnight Refrigeration 39°F (4°C)","Overnight Refrigeration 45°F (7°C)","5 Lunch (50 min) with 4 breaks (4 min)","4 Lunch (50 min) with 3 breaks (7 min)","2 Lunches (30 min) with 1 break (14 min)","1 Lunch (40 min) with 0 breaks", "3 Lunches (31 min) with 2 break (16 min)" ))
 
 Max_RTB<-round(max(Df_RT_MT_RTB$MilkTemp),1)
 Max_RT<-round(max(Df_RT_MT_RT$MilkTemp),1)
@@ -989,6 +992,7 @@ Max_s5b4<-round(max(Df_RT_MT_s5b4$MilkTemp),1)
 Max_s4b3<-round(max(Df_RT_MT_s4b3$MilkTemp),1)
 Max_s2b1<-round(max(Df_RT_MT_s2b1$MilkTemp),1)
 Max_s1b0<-round(max(Df_RT_MT_s1b0$MilkTemp),1)
+Max_s3b2<-round(max(Df_RT_MT_s3b2$MilkTemp),1)
 
 
 
@@ -1009,12 +1013,14 @@ label = c(paste("Milk Peak Temp:",Max_RTB,"°C"),
           paste("Milk Peak Temp:",Max_s5b4,"°C"),
           paste("Milk Peak Temp:",Max_s4b3,"°C"),
           paste("Milk Peak Temp:",Max_s2b1,"°C"),
-          paste("Milk Peak Temp:",Max_s1b0,"°C")
+          paste("Milk Peak Temp:",Max_s1b0,"°C"),
+          paste("Milk Peak Temp:",Max_s3b2,"°C")
           ),
-Condition   = c("Ambient Temperature 72°F (22.1°C)", "Refrigerated Tray", "Tray with Ice Packs", "Tray with Ice", "Cooler with Ice", "Ambient with Intermediate Refrigeration","Ambient Temperature 65°F (18.3° C)","Ambient Temperature 70°F (21.1° C)","Ambient Temperature 75°F (23.8° C)", "Overnight Refrigeration 36°F (2°C)","Overnight Refrigeration 39°F (4°C)","Overnight Refrigeration 45°F (7°C)","5 Lunch (50 min) with 4 breaks (4 min)","4 Lunch (50 min) with 3 breaks (7 min)","2 Lunches (30 min) with 1 break (14 min)","1 Lunch (40 min) with 0 breaks"),
-Scenario   = c("Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Ambient Temperature Scenarios","Ambient Temperature Scenarios","Ambient Temperature Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios"),
-  x     = c(5200, 5200, 5200,5200,5200, 5200, 5200,5200, 5200, 5200, 5200,5200, 5200,5200, 5200,5200),
-  y     = c(25, 25, 25,25,25,25,25, 25, 25,25,25,25,25,25,25,25)
+Condition   = c("Ambient Temperature 72°F (22.1°C)", "Refrigerated Tray", "Tray with Ice Packs", "Tray with Ice", "Cooler with Ice", "Ambient with Intermediate Refrigeration","Ambient Temperature 65°F (18.3° C)","Ambient Temperature 70°F (21.1° C)","Ambient Temperature 75°F (23.8° C)", "Overnight Refrigeration 36°F (2°C)","Overnight Refrigeration 39°F (4°C)","Overnight Refrigeration 45°F (7°C)","5 Lunch (50 min) with 4 breaks (4 min)","4 Lunch (50 min) with 3 breaks (7 min)","2 Lunches (30 min) with 1 break (14 min)","1 Lunch (40 min) with 0 breaks","3 Lunches (31 min) with 2 break (16 min)"),
+
+Scenario   = c("Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Condition Scenario", "Ambient Temperature Scenarios","Ambient Temperature Scenarios","Ambient Temperature Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Overnight Refrigeration Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios","Bell Schedule Scenarios" ),
+  x     = c(5200, 5200, 5200,5200,5200, 5200, 5200,5200, 5200, 5200, 5200,5200, 5200,5200, 5200,5200,5200),
+  y     = c(25, 25, 25,25,25,25,25, 25, 25,25,25,25,25,25,25,25,24)
 )
 
 

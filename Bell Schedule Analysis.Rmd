@@ -135,6 +135,7 @@ df <- CreateAllFacet(All_Lunches, "type")
 ggplot(df, aes(x = Total_time))+
   geom_histogram(aes(fill = type), color= "black")+
   facet_wrap(~facet, scales = "free_x")+
+  theme(legend.position = c(0.8, 0.2))+
   theme_bw()+
   labs(x= "Time (min)", y = "Count (Schools)", fill= "No. Lunches, No. Breaks")
   
