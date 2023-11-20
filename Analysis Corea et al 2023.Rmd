@@ -179,7 +179,7 @@ Df_RT_MT_s5b4<-read.csv("Pedicted Time and Temp Profiles/Df_RT_MT_s5b4.csv")
 Df_RT_MT_s4b3<-read.csv("Pedicted Time and Temp Profiles/Df_RT_MT_s4b3.csv")
 Df_RT_MT_s1b0<-read.csv("Pedicted Time and Temp Profiles/Df_RT_MT_s1b0.csv")
 Df_RT_MT_s2b1<-read.csv("Pedicted Time and Temp Profiles/Df_RT_MT_s2b1.csv")
-
+Df_RT_MT_s3b2<-read.csv("Pedicted Time and Temp Profiles/Df_RT_MT_s3b2.csv")
 ```
 
 
@@ -379,10 +379,12 @@ Obtaining_Spoiled_Milks_DFs<-function(N_Years, Service_Length,TurningT_Length){
 
 ```
 
+
+### When running up to this point
 ```{r warning=TRUE}
 
-#normal service, changes in time and temp profile
-Outs_DFs<-Obtaining_Spoiled_Milks_DFs(N_Years = 1, Service_Length = 50,TurningT_Length = 25) 
+#normal service, changes in time and temp profile #this runs the model
+Outs_DFs<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25) 
 
 Outs_DFs_RTB<-Outs_DFs
 Outs_DFs_RT<-Outs_DFs
@@ -406,7 +408,7 @@ Outs_DFs_LowCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,
 source("Input_Static.R")
 Outs_DFs_MedCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
 
-source("Input_Static.R")
+ source("Input_Static.R")
 Outs_DFs_HighCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
 
 source("Input_Static.R")
@@ -431,6 +433,9 @@ Outs_DFs_1sb0<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 40,Tur
 
 source("Input_Static.R")
 Outs_DFs_2sb1<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 30,TurningT_Length = 14)
+
+source("Input_Static.R")
+Outs_DFs_3sb2<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 31,TurningT_Length = 16)
 
 ```
 
@@ -480,7 +485,7 @@ for (i in 1:50){
   x_RTB = nrow(RTB_List[[i]])
   rows_RTB = c(rows_RTB,x_RTB)
 }
-
+####---------------------
 mean(rows_RTB)
 Total_Milks_Spoiled_RTB
 mean(Total_Milks_Spoiled_RTB)
@@ -492,6 +497,7 @@ RTB_List_total_milks<-c()
 for (i in 1:50){
   RTB_List_total_milks<-c(RTB_List_total_milks,length(RTB_List[[i]]$ID))
 }
+#######-----------
 mean(RTB_List_total_milks)
 range(RTB_List_total_milks)
 
@@ -502,6 +508,7 @@ for (i in 1:50){
   RTB_List_pecentage_spoiled<-c(RTB_List_pecentage_spoiled,(sum(RTB_List[[i]]$SpoilageCon>6)/length(RTB_List[[i]]$SpoilageCon)))
 }
 
+##
 mean(RTB_List_pecentage_spoiled)
 range (RTB_List_pecentage_spoiled)
 
@@ -511,6 +518,7 @@ for (i in 1:50){
   RTB_List_population<-c(RTB_List_population,RTB_List[[i]]$SpoilageCon)
 }
 
+#####
 mean(RTB_List_population) #CFU/mL
 range (RTB_List_population)
 
@@ -1115,6 +1123,8 @@ for (i in 1:50){
   Ref_2C_List_Time<-c(Ref_2C_List_Time,Ref_2C_List[[i]]$TotTime)
 }
 
+
+#NONEEDEDIS TIME
 mean(Ref_2C_List_Time) #CFU/mL
 range (Ref_2C_List_Time)
 
@@ -1561,6 +1571,7 @@ range (s1b0_List_Time)
 
 
 ```
+
 ## S21B
 ```{r}
 s2b1_List<-list()  
@@ -1691,9 +1702,69 @@ range (SToff_List_Time)
 ```
 
 
+# s3b2
+
+```{r}
+s3b2_List<-list()  
+Output_Milk_s3b2<-Spoilage_Function_Single_Milk(Cont = 2.44, Pop_Max =8.14, Time_Temp_df = Df_RT_MT_s3b2, Interval =1/60,AF = 1.32)
+Changes_Over_Time_s3b2<-Output_Milk_s3b2[[2]]
+for (i in 1:50){
+  AnalysysDF_s3b2<- Appling_Changes(df = Outs_DFs_3sb2[[i]], Changes_Over_Time = Changes_Over_Time_s3b2)
+  s3b2_List<-append(s3b2_List,list(AnalysysDF_s3b2))
+}
+
+s3b2_List_per_spoiled<-list() 
+for (i in 1:50){
+  s3b2_List_per_spoiled<-append(s3b2_List_per_spoiled,list(summary_per_spoiled(s3b2_List[[i]])))
+}
+
+Total_Milks_Spoiled_s3b2<-Extracting_Total_SpoiledMilks(Output_Name = s3b2_List_per_spoiled, N_Years = 50)
+
+Total_Milks_Spoiled_s3b2
+mean(Total_Milks_Spoiled_s3b2)
+range (Total_Milks_Spoiled_s3b2)
 
 
 
+#Range of milks per year
+s2b1_List_total_milks<-c()
+for (i in 1:50){
+  s2b1_List_total_milks<-c(s2b1_List_total_milks,length(s2b1_List[[i]]$ID))
+}
+mean(s2b1_List_total_milks)
+range(s2b1_List_total_milks)
+
+
+#Percentage of spoiled milks per year
+s2b1_List_pecentage_spoiled<-c()
+for (i in 1:50){
+  s2b1_List_pecentage_spoiled<-c(s2b1_List_pecentage_spoiled,(sum(s2b1_List[[i]]$SpoilageCon>6)/length(s2b1_List[[i]]$SpoilageCon)))
+}
+
+mean(s2b1_List_pecentage_spoiled)
+range (s2b1_List_pecentage_spoiled)
+
+#Population Summary
+s2b1_List_population<-c()
+for (i in 1:50){
+  s2b1_List_population<-c(s2b1_List_population,s2b1_List[[i]]$SpoilageCon)
+}
+
+mean(s2b1_List_population) #CFU/mL
+range (s2b1_List_population)
+
+#Time in System
+s2b1_List_Time<-c()
+for (i in 1:50){
+  s2b1_List_Time<-c(s2b1_List_Time,s2b1_List[[i]]$TotTime)
+}
+
+mean(s2b1_List_Time) #CFU/mL
+range (s2b1_List_Time)
+
+
+
+```
 
 
 

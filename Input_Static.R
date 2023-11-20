@@ -22,7 +22,7 @@
   ########## FOR COREA Et al ##################
   
   #Serivices, number of days we are trying to iterate. Lunch periods per day
-  Service_No<- 2 #2 is baseline
+  Service_No<-3 #2 is baseline
   
   #Days we are trying to Iterate. Days
   Food_Days<-5 #Baseline is 5
@@ -32,9 +32,9 @@
   
   
 #Lengths for milk model #need to make sense with no services all have to add up to 1440
-  Time_Service_Length = 50 #Baseline is 50
-  Time_Turnaround_Length = 25 # Baseline is 25
-  Time_Overnight_Length = 1315 #Baseline is 1315 
+  Time_Service_Length = 31 #Baseline is 50
+  Time_Turnaround_Length = 16 #Baseline 25
+  Time_Overnight_Length = 1315 #Baseline is 1315, A day has 1440 min
   
   
   ########## FOR COREA Et al ##################
@@ -98,8 +98,8 @@
   ########## FOR COREA Et al ##################
   
   # Inputs for Milk Spoilage -------------------------------------------------
-  Milk_Con_Mean<- -1.77 # 0.38 #-1.77, q2.5 #2.52 q97.5, 0.38 q50 
-  Milk_Con_SD<-1.1 #1.1
+  Milk_Con_Mean<-0.38 # 0.38 #-1.77, q2.5 #2.52 q97.5, 0.38 q50 #3.21 q99.5
+  Milk_Con_SD<-1.1 #1.1 baseline, 0 when running initial contamination  
   
   ########## FOR COREA Et al ##################
   

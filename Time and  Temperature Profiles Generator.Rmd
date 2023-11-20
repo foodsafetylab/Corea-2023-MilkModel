@@ -903,6 +903,45 @@ ggplot(data = Df_RT_MT_s2b1_melted, aes(x = Time, y = value, color = variable))+
 #ggsave("Pedicted Time and Temp Profiles/PredictedRef_4C.png", height = 3, width = 8, dpi = 300)
 ```
 
+## 3s2b-short
+
+```{r}
+Time_Temp_Df_s3b2<-Create_Temperature_Profile_days(First_Cond = "Room Temp", 
+                                                  Second_Cond = "Refrigeration", 
+                                                  First_Cond_Total_Time = 124,
+                                                  Second_Cond_Total_Time = 1314,
+                                                  First_Cond_Mean_Temperature = 22.1, 
+                                                  First_Cond_SD_Temperature = 0,#0.77,
+                                                  Second_Cond_Mean_Temperature= 3.71, 
+                                                  Second_Cond_SD_Temperature = 0,#1.04,
+                                                  Interval  =1, 
+                                                  Cycles = 5)
+
+
+Temp_Milk_Vectors_s3b2<-predict_full_milk_temp(df = Time_Temp_Df_s3b2, Temp_Initial = 4)
+
+Df_RT_MT_s3b2<-data.frame("RoomTemp" = Time_Temp_Df_s3b2$Rtemp,
+                     "MilkTemp" = Temp_Milk_Vectors_s3b2,
+                     "Time" = 1:length(Temp_Milk_Vectors_s3b2))
+Df_RT_MT_s3b2_melted<-melt(Df_RT_MT_s3b2, id.vars = "Time")
+Df_RT_MT_s3b2_melted$Condition = "3 Lunches (31 min) with 2 break (16 min)"
+Df_RT_MT_s3b2_melted$Scenario = "Bell Schedule Scenarios"
+
+
+#Saving as CSV
+write.csv(Df_RT_MT_s3b2, file = "Pedicted Time and Temp Profiles/Df_RT_MT_s3b2.csv")
+```
+
+Plotting it
+```{r}
+ggplot(data = Df_RT_MT_s2b1_melted, aes(x = Time, y = value, color = variable))+
+  geom_line(size = 1)+
+  theme_bw()+
+  labs(x = "Time (min)", y = "Temperature (°C)", title= "Overnight Refrigeration at 4°C ")+
+  scale_color_discrete(name = "Temperature Profile")
+
+#ggsave("Pedicted Time and Temp Profiles/PredictedRef_4C.png", height = 3, width = 8, dpi = 300)
+```
 
 
 
