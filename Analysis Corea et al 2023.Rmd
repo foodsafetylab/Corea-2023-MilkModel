@@ -522,6 +522,16 @@ for (i in 1:50){
 mean(RTB_List_population) #CFU/mL
 range (RTB_List_population)
 
+#Time in System
+RTB_List_Time<-c()
+for (i in 1:50){
+  RTB_List_Time<-c(RTB_List_Time,RTB_List[[i]]$TotTime)
+}
+
+mean(RTB_List_Time) #CFU/mL
+range (RTB_List_Time)
+quantile(RTB_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 90, 95)/100)
+
 ```
 
 #RT
@@ -1727,41 +1737,41 @@ range (Total_Milks_Spoiled_s3b2)
 
 
 #Range of milks per year
-s2b1_List_total_milks<-c()
+s3b2_List_total_milks<-c()
 for (i in 1:50){
-  s2b1_List_total_milks<-c(s2b1_List_total_milks,length(s2b1_List[[i]]$ID))
+  s2b1_List_total_milks<-c(s3b2_List_total_milks,length(s3b2_List[[i]]$ID))
 }
-mean(s2b1_List_total_milks)
-range(s2b1_List_total_milks)
+mean(s3b2_List_total_milks)
+range(s3b2_List_total_milks)
 
 
 #Percentage of spoiled milks per year
-s2b1_List_pecentage_spoiled<-c()
+s3b2_List_pecentage_spoiled<-c()
 for (i in 1:50){
-  s2b1_List_pecentage_spoiled<-c(s2b1_List_pecentage_spoiled,(sum(s2b1_List[[i]]$SpoilageCon>6)/length(s2b1_List[[i]]$SpoilageCon)))
+ s3b2_List_pecentage_spoiled<-c(s3b2_List_pecentage_spoiled,(sum(s3b2_List[[i]]$SpoilageCon>6)/length(s3b2_List[[i]]$SpoilageCon)))
 }
 
-mean(s2b1_List_pecentage_spoiled)
-range (s2b1_List_pecentage_spoiled)
+mean(s3b2_List_pecentage_spoiled)
+range (s3b2_List_pecentage_spoiled)
 
 #Population Summary
-s2b1_List_population<-c()
+s3b2_List_population<-c()
 for (i in 1:50){
-  s2b1_List_population<-c(s2b1_List_population,s2b1_List[[i]]$SpoilageCon)
+  s3b2_List_population<-c(s3b2_List_population,s3b2_List[[i]]$SpoilageCon)
 }
 
-mean(s2b1_List_population) #CFU/mL
-range (s2b1_List_population)
+mean(s3b2_List_population) #CFU/mL
+range (s3b2_List_population)
 
 #Time in System
-s2b1_List_Time<-c()
+s3b2_List_Time<-c()
 for (i in 1:50){
-  s2b1_List_Time<-c(s2b1_List_Time,s2b1_List[[i]]$TotTime)
+  s3b2_List_Time<-c(s3b2_List_Time,s3b2_List[[i]]$TotTime)
 }
 
-mean(s2b1_List_Time) #CFU/mL
-range (s2b1_List_Time)
-
+mean(s3b2_List_Time) #CFU/mL
+range (s3b2_List_Time)
+quantile(s3b2_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 90, 95)/100)
 
 
 ```
