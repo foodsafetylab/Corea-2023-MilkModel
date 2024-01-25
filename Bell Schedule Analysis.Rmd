@@ -137,7 +137,8 @@ ggplot(df, aes(x = Total_time))+
   facet_wrap(~facet, scales = "free_x")+
   theme(legend.position = c(0.8, 0.2))+
   theme_bw()+
-  labs(x= "Time (min)", y = "Count (Schools)", fill= "No. Lunches, No. Breaks")
+  labs(x= "Time (min)", y = "Count (Schools)", fill= "No. Lunches, No. Breaks") +
+  theme(legend.position="bottom")
   
 ggsave("Figures/Figure A- histograms_lunch.jpg", width =8, height = 6, units = "in", dpi = 300)
 

@@ -22,7 +22,7 @@
   ########## FOR COREA Et al ##################
   
   #Serivices, number of days we are trying to iterate. Lunch periods per day
-  Service_No<-3 #2 is baseline
+  Service_No<-2 #2 is baseline
   
   #Days we are trying to Iterate. Days
   Food_Days<-5 #Baseline is 5
@@ -32,8 +32,8 @@
   
   
 #Lengths for milk model #need to make sense with no services all have to add up to 1440
-  Time_Service_Length = 31 #Baseline is 50
-  Time_Turnaround_Length = 16 #Baseline 25
+  Time_Service_Length = 50 #Baseline is 50
+  Time_Turnaround_Length = 25 #Baseline 25
   Time_Overnight_Length = 1315 #Baseline is 1315, A day has 1440 min
   
   
