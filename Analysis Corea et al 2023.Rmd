@@ -412,7 +412,7 @@ Outs_DFs_LowCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,
 source("Input_Static.R")
 Outs_DFs_MedCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
 
- source("Input_Static.R")
+source("Input_Static.R")
 Outs_DFs_HighCont<-Obtaining_Spoiled_Milks_DFs(N_Years = 50, Service_Length = 50,TurningT_Length = 25)
 
 source("Input_Static.R")
@@ -542,11 +542,11 @@ for (i in 1:50){
 
 mean(RTB_List_Time) #CFU/mL
 range (RTB_List_Time)
-quantile(RTB_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 90, 95)/100)
+quantile(RTB_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 ```
 
-#RT
+#RTR
 ```{r}
 RT_List<-list()  
 Output_Milk_RT<-Spoilage_Function_Single_Milk(Cont = 2.44, Pop_Max =8.14, Time_Temp_df = Df_RT_MT_RT, Interval =1/60,AF = 1.32)
@@ -596,6 +596,7 @@ for (i in 1:50){
 
 mean(RT_List_population) #CFU/mL
 range (RT_List_population)
+
 
 
 
@@ -652,6 +653,7 @@ for (i in 1:50){
 mean(TIP_List_population) #CFU/mL
 range (TIP_List_population)
 
+
 ```
 
 
@@ -705,6 +707,8 @@ for (i in 1:50){
 
 mean(TIC_List_population) #CFU/mL
 range (TIC_List_population)
+
+
 ```
 
 
@@ -757,6 +761,8 @@ for (i in 1:50){
 
 mean(CI_List_population) #CFU/mL
 range (CI_List_population)
+
+
 ```
 
 
@@ -810,6 +816,7 @@ for (i in 1:50){
 
 mean(RTB_refB_List_population) #CFU/mL
 range (RTB_refB_List_population)
+
 
 ```
 
@@ -865,6 +872,8 @@ for (i in 1:50){
 
 mean(RTB_18C_List_population) #CFU/mL
 range (RTB_18C_List_population)
+
+
 
 ```
 
@@ -924,6 +933,7 @@ for (i in 1:50){
 mean(RTB_21C_List_population) #CFU/mL
 range (RTB_21C_List_population)
 
+
 ```
 
 
@@ -977,6 +987,7 @@ for (i in 1:50){
 
 mean(RTB_23C_List_population) #CFU/mL
 range (RTB_23C_List_population)
+
 
 ```
 
@@ -1033,6 +1044,7 @@ for (i in 1:50){
 mean(Ref_7C_List_population) #CFU/mL
 range (Ref_7C_List_population)
 
+
 ```
 
 #ref4C
@@ -1084,6 +1096,7 @@ for (i in 1:50){
 
 mean(Ref_4C_List_population) #CFU/mL
 range (Ref_4C_List_population)
+
 
 ```
 
@@ -1150,7 +1163,6 @@ for (i in 1:50){
 mean(Ref_2C_List_Time) #CFU/mL
 range (Ref_2C_List_Time)
 
-
 ```
 
 #High Conts
@@ -1211,7 +1223,7 @@ for (i in 1:50){
 
 mean(HighCont_List_Time) #CFU/mL
 range (HighCont_List_Time)
-
+quantile(HighCont_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 
@@ -1275,7 +1287,7 @@ for (i in 1:50){
 
 mean(VeryHighCont_List_Time) #CFU/mL
 range (VeryHighCont_List_Time)
-
+quantile(VeryHighCont_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 #Med Conts
@@ -1337,7 +1349,7 @@ for (i in 1:50){
 
 mean(MedCont_List_Time) #CFU/mL
 range (MedCont_List_Time)
-
+quantile(MedCont_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 
@@ -1399,7 +1411,7 @@ for (i in 1:50){
 
 mean(LowCont_List_Time) #CFU/mL
 range (LowCont_List_Time)
-
+quantile(LowCont_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 #5b_4s
@@ -1461,7 +1473,7 @@ for (i in 1:50){
 
 mean(s54b_List_Time) #CFU/mL
 range (s54b_List_Time)
-
+quantile(s54b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 #5s4BTIC
 ```{r}
@@ -1521,7 +1533,7 @@ for (i in 1:50){
 
 mean(s54b_List_Time) #CFU/mL
 range (s54b_List_Time)
-
+quantile(s54b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 #5s4BTIP
@@ -1582,11 +1594,12 @@ for (i in 1:50){
 
 mean(s54b_List_Time) #CFU/mL
 range (s54b_List_Time)
+quantile(s54b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 
 
-#4b_3s
+#4s_3B
 
 ```{r}
 s43b_List<-list()  
@@ -1645,7 +1658,7 @@ for (i in 1:50){
 
 mean(s43b_List_Time) #CFU/mL
 range (s43b_List_Time)
-
+quantile(s43b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 
 ```
@@ -1707,7 +1720,7 @@ for (i in 1:50){
 
 mean(s43b_List_Time) #CFU/mL
 range (s43b_List_Time)
-
+quantile(s43b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 #4S3BTIP
@@ -1768,7 +1781,7 @@ for (i in 1:50){
 
 mean(s43b_List_Time) #CFU/mL
 range (s43b_List_Time)
-
+quantile(s43b_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 ```
 
 
@@ -1832,7 +1845,7 @@ for (i in 1:50){
 
 mean(s1b0_List_Time) #CFU/mL
 range (s1b0_List_Time)
-
+quantile(s1b0_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 
 ```
@@ -1895,7 +1908,7 @@ for (i in 1:50){
 
 mean(s2b1_List_Time) #CFU/mL
 range (s2b1_List_Time)
-
+quantile(s2b1_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 
 ```
@@ -1962,7 +1975,7 @@ for (i in 1:50){
 
 mean(SToff_List_Time) #CFU/mL
 range (SToff_List_Time)
-
+quantile(SToff_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 ```
 
@@ -1994,7 +2007,7 @@ range (Total_Milks_Spoiled_s3b2)
 #Range of milks per year
 s3b2_List_total_milks<-c()
 for (i in 1:50){
-  s2b1_List_total_milks<-c(s3b2_List_total_milks,length(s3b2_List[[i]]$ID))
+  s3b2_List_total_milks<-c(s3b2_List_total_milks,length(s3b2_List[[i]]$ID))
 }
 mean(s3b2_List_total_milks)
 range(s3b2_List_total_milks)
@@ -2026,7 +2039,7 @@ for (i in 1:50){
 
 mean(s3b2_List_Time) #CFU/mL
 range (s3b2_List_Time)
-quantile(s3b2_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 90, 95)/100)
+quantile(s3b2_List_Time, probs=c(10, 20, 30, 40, 50, 60, 70, 80, 85, 88, 89, 90, 95)/100)
 
 
 ```
