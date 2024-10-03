@@ -1,7 +1,7 @@
 # Corea-2023-MilkModel
 
 ## Overview
-TO DO: Update following publication
+School share tables offer opportunities for food recovery and increased access to healthy foods by allowing students to donate or consume unopened items, such as cartons of milk. However, stakeholders have concerns about temperature abuse potentially causing premature milk spoilage. While previous research showed short ambient temperature abuse of milk (under conditions representing share tables) does not meaningfully impact microbial milk quality, differences across school cafeterias (e.g., ambient temperatures, storage systems, bell schedules, refrigeration temperature) may limit the generalizability of this conclusion. To address this, the overnight refrigeration temperature and the milk's initial contamination were predicted to be the main drivers for milk spoilage. Share tables were predicted to only cause inconsequential microbial quality changes (4 spoiled milk per million served, which would be ≤2 milk cartons spoiled per school year) under short and medium bell schedules (≤125 min of total service), even without temperature control during the lunch period. Under long (221 min) and very long (266 min) bell schedules, share tables with ambient temperature storage were predicted to have higher milk spoilage (19 and 42 spoiled milk cartons per million served, respectively), and adding storage systems was predicted to reduce the decline in milk quality (12 and 24 spoiled milk cartons per million served, respectively). These results provide a resource to support science-based decision-making for the inclusion of milk in school cafeteria share tables, ultimately working to reduce food waste and address food insecurity.
 
 ## Usage
 
@@ -22,7 +22,7 @@ USA<br>
 [mstasie@illinois.edu](mailto:mstasie@illinois.edu)
 
 ## Citation
-TO DO: Update following publication
+Corea, P., G. A. Reyes, G. Pinto, B. Peterson, M. P. Prescott, K. Dolan, and M. J. Stasiewicz. 2024. Milk Spoilage Model Predicts that Share Tables Would Not Meaningfully Increase Spoilage and Improved Storage Systems Can Reduce Spoilage. Journal of Dairy Science.
 
 ## License
 This project's code is licensed under the GNU General Public License v3.0 and dataset is licensed the Creative Commons Attribution Share Alike 4.0 International license. Please see the [LICENSE.code](/LICENSE.code) and [LICENSE.dataset](/LICENSE.dataset) files for details.
